@@ -1,0 +1,334 @@
+[
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_overlay_window.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/overlay_window.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_bubble_user.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_bubble_user.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_conversation_detail.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_conversation_detail.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_recommended_card.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_recommended_card.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_pairing_dialog.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_pairing_dialog.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_floating_control_bar.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/floating_control_bar.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_status_bar.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_status_bar.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_ic_minimize.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/ic_minimize.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_card_expanded.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_card_expanded.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_overlay_stop.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_overlay_stop.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_action_btn.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_action_btn.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/xml_network_security_config.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_fab_background.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/fab_background.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_conversation.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_conversation.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_island.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_island.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_schedule_list.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_schedule_list.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_routine_icon.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_routine_icon.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_chathead_improved.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_chathead_improved.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_chat_system.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_system.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_overlay_minimized.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/overlay_minimized.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_setup.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_setup.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_control_panel.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_control_panel.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_btn_send.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_btn_send.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_dialog_save_routine.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/dialog_save_routine.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_routine_chip.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_routine_chip.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-hdpi_ic_launcher_monochrome.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-hdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_otp_digit.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_otp_digit.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_input_background.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/input_background.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_view.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_view.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_routine_recent.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_routine_recent.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_dialog_qr_code.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/dialog_qr_code.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_ic_chat_head.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/ic_chat_head.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_banner_background.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/banner_background.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_conversation_date_header.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_conversation_date_header.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_otp_digit_focused.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_otp_digit_focused.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_overlay_pill.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_overlay_pill.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_settings.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_chat_user.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_user.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_ic_notification.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_schedule_card.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_schedule_card.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_memory.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_memory.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_otp_digit_selector.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_otp_digit_selector.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_overlay_dot.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_overlay_dot.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_otp_key.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_otp_key.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_routine_chip.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_routine_chip.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_action_btn_danger.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_action_btn_danger.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_chat_agent.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_agent.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_otp_key_pressed.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_otp_key_pressed.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxxhdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_conversation_card.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_conversation_card.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_ic_overlay_logo.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/ic_overlay_logo.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_bubble_agent.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_bubble_agent.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_routine_recent.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_routine_recent.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_island_stop.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_island_stop.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_activity_conversation_history.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_conversation_history.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxhdpi_ic_launcher_monochrome.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxhdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_otp_key_selector.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_otp_key_selector.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/xml_accessibility_service_config.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable-night_bg_recommended_card.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable-night/bg_recommended_card.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/xml_settings_root.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/xml/settings_root.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_memory.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_memory.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/layout_item_chat_cycle.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_cycle.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-mdpi_ic_launcher_monochrome.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-mdpi/ic_launcher_monochrome.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_bg_input_field.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/bg_input_field.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/drawable_panel_background.xml.flat",
+        "source": "ai.opencyvis.app-main-50:/drawable/panel_background.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "ai.opencyvis.app-systemDebug-48:/mipmap-xhdpi_ic_launcher_monochrome.png.flat",
+        "source": "ai.opencyvis.app-main-50:/mipmap-xhdpi/ic_launcher_monochrome.png"
+    }
+]

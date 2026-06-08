@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_memory.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_memory.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_chat_user.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_user.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_conversation_history.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_conversation_history.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/overlay_minimized.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/overlay_minimized.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_conversation.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_conversation.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_schedule_card.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_schedule_card.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_conversation_date_header.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_conversation_date_header.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/overlay_window.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/overlay_window.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_control_panel.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_control_panel.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_conversation_detail.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_conversation_detail.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_schedule_list.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_schedule_list.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_routine_recent.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_routine_recent.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_chat_agent.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_agent.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_chat_system.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_system.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/dialog_qr_code.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/dialog_qr_code.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_chat_cycle.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_chat_cycle.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_view.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_view.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_pairing_dialog.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_pairing_dialog.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_routine_chip.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_routine_chip.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/floating_control_bar.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/floating_control_bar.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/item_memory.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/item_memory.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_setup.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_setup.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/dialog_save_routine.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/dialog_save_routine.xml"
+    },
+    {
+        "merged": "ai.opencyvis.app-mergeStandardDebugResources-47:/layout/activity_settings.xml",
+        "source": "ai.opencyvis.app-main-50:/layout/activity_settings.xml"
+    }
+]

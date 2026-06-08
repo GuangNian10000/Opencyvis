@@ -1,0 +1,587 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ai.opencyvis"
+4    android:sharedUserId="android.uid.system"
+5    android:versionCode="201"
+6    android:versionName="2.0.1" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="30"
+10        android:targetSdkVersion="36" />
+11
+12    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+12-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:5:5-78
+12-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:5:22-75
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+13-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:6:5-77
+13-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:6:22-74
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+14-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:7:5-89
+14-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:7:22-86
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+15-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:8:5-94
+15-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:8:22-91
+16    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+16-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:9:5-76
+16-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:9:22-73
+17    <uses-permission android:name="android.permission.INTERNET" />
+17-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:10:5-67
+17-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:10:22-64
+18    <uses-permission android:name="android.permission.INJECT_EVENTS" />
+18-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:11:5-72
+18-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:11:22-69
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:12:5-79
+19-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:12:22-76
+20    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+20-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:13:5-77
+20-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:13:22-74
+21    <uses-permission android:name="android.permission.WAKE_LOCK" />
+21-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:14:5-68
+21-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:14:22-65
+22    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+22-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:15:5-71
+22-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:15:22-68
+23    <uses-permission android:name="android.permission.READ_FRAME_BUFFER" />
+23-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:16:5-76
+23-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:16:22-73
+24    <uses-permission android:name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT" />
+24-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:17:5-86
+24-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:17:22-83
+25    <uses-permission android:name="android.permission.MANAGE_ACTIVITY_TASKS" />
+25-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:18:5-80
+25-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:18:22-77
+26    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+26-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:19:5-81
+26-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:19:22-78
+27    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+27-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:20:5-79
+27-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:20:22-76
+28    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+28-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:21:5-79
+28-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:21:22-76
+29    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+29-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:22:5-81
+29-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:22:22-78
+30    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" /> <!-- Heads-up the pairing-code notification even when our process is backgrounded/frozen -->
+30-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:23:5-85
+30-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:23:22-82
+31    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+31-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:25:5-81
+31-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:25:22-78
+32    <!--
+33 Let the user exempt us from battery optimization so aggressive OEM freezers
+34         (e.g. ColorOS HansManager) are less likely to suspend the pairing service
+35    -->
+36    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" /> <!-- Package visibility: allows list_apps to discover all installed apps (Android 11+) -->
+36-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:28:5-95
+36-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:28:22-92
+37    <queries>
+37-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:31:5-36:15
+38        <intent>
+38-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:32:9-35:18
+39            <action android:name="android.intent.action.MAIN" />
+39-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:33:13-65
+39-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:33:21-62
+40
+41            <category android:name="android.intent.category.LAUNCHER" />
+41-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:34:13-73
+41-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:34:23-70
+42        </intent>
+43    </queries>
+44
+45    <permission
+45-->[androidx.core:core:1.15.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/93639475251996fa3d148eef232bebc1/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+46        android:name="ai.opencyvis.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+46-->[androidx.core:core:1.15.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/93639475251996fa3d148eef232bebc1/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+47        android:protectionLevel="signature" />
+47-->[androidx.core:core:1.15.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/93639475251996fa3d148eef232bebc1/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+48
+49    <uses-permission android:name="ai.opencyvis.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+49-->[androidx.core:core:1.15.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/93639475251996fa3d148eef232bebc1/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+49-->[androidx.core:core:1.15.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/93639475251996fa3d148eef232bebc1/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+50    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+50-->[dev.rikka.shizuku:provider:13.1.5] /Users/guangnian/.gradle/caches/8.11.1/transforms/8cc67e45394008f1fe1ecd970dc7f9b2/transformed/provider-13.1.5/AndroidManifest.xml:8:5-78
+50-->[dev.rikka.shizuku:provider:13.1.5] /Users/guangnian/.gradle/caches/8.11.1/transforms/8cc67e45394008f1fe1ecd970dc7f9b2/transformed/provider-13.1.5/AndroidManifest.xml:8:22-75
+51    <uses-permission android:name="android.permission.CAMERA" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+51-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:22:5-65
+51-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:22:22-62
+52    <uses-feature
+52-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:25:5-27:36
+53        android:name="android.hardware.camera"
+53-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:26:9-47
+54        android:required="false" />
+54-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:27:9-33
+55    <uses-feature
+55-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:28:5-30:36
+56        android:name="android.hardware.camera.front"
+56-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:29:9-53
+57        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+57-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:30:9-33
+58    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
+59    <uses-feature
+59-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:33:5-35:36
+60        android:name="android.hardware.camera.autofocus"
+60-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:34:9-57
+61        android:required="false" />
+61-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:35:9-33
+62    <uses-feature
+62-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:36:5-38:36
+63        android:name="android.hardware.camera.flash"
+63-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:37:9-53
+64        android:required="false" />
+64-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:38:9-33
+65    <uses-feature
+65-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:39:5-41:36
+66        android:name="android.hardware.screen.landscape"
+66-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:40:9-57
+67        android:required="false" />
+67-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:41:9-33
+68    <uses-feature
+68-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:42:5-44:36
+69        android:name="android.hardware.wifi"
+69-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:43:9-45
+70        android:required="false" />
+70-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:44:9-33
+71
+72    <application
+72-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:38:5-209:19
+73        android:name="ai.opencyvis.App"
+73-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:39:9-28
+74        android:allowBackup="false"
+74-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:41:9-36
+75        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+75-->[androidx.core:core:1.15.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/93639475251996fa3d148eef232bebc1/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+76        android:debuggable="true"
+77        android:extractNativeLibs="false"
+78        android:icon="@mipmap/ic_launcher"
+78-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:42:9-43
+79        android:label="@string/app_name"
+79-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:43:9-41
+80        android:supportsRtl="true"
+80-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:44:9-35
+81        android:theme="@style/Theme.OpenCyvis"
+81-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:45:9-47
+82        android:usesCleartextTraffic="true" >
+82-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:40:9-44
+83        <activity
+83-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:47:9-59:20
+84            android:name="ai.opencyvis.ui.ControlPanelActivity"
+84-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:48:13-52
+85            android:configChanges="uiMode"
+85-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:50:13-43
+86            android:exported="true"
+86-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:49:13-36
+87            android:label="@string/app_name"
+87-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:51:13-45
+88            android:launchMode="singleTask"
+88-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:52:13-44
+89            android:theme="@style/Theme.OpenCyvis.NoActionBar"
+89-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:53:13-63
+90            android:windowSoftInputMode="adjustResize" >
+90-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:54:13-55
+91            <intent-filter>
+91-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:55:13-58:29
+92                <action android:name="android.intent.action.MAIN" />
+92-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:33:13-65
+92-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:33:21-62
+93
+94                <category android:name="android.intent.category.LAUNCHER" />
+94-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:34:13-73
+94-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:34:23-70
+95            </intent-filter>
+96        </activity>
+97        <activity
+97-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:61:9-67:58
+98            android:name="ai.opencyvis.ui.ViewActivity"
+98-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:62:13-44
+99            android:exported="false"
+99-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:63:13-37
+100            android:label="OpenCyvis View"
+100-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:64:13-43
+101            android:launchMode="singleTask"
+101-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:65:13-44
+102            android:theme="@style/Theme.OpenCyvis.NoActionBar"
+102-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:66:13-63
+103            android:windowSoftInputMode="adjustResize" />
+103-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:67:13-55
+104        <activity
+104-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:69:9-85:20
+105            android:name="ai.opencyvis.SettingsActivity"
+105-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:70:13-45
+106            android:exported="true"
+106-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:71:13-36
+107            android:label="Settings"
+107-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:72:13-37
+108            android:launchMode="singleTop"
+108-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:73:13-43
+109            android:theme="@style/Theme.OpenCyvis.Settings" >
+109-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:74:13-60
+110            <intent-filter>
+110-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:75:13-84:29
+111                <action android:name="android.intent.action.VIEW" />
+111-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:76:17-69
+111-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:76:25-66
+112
+113                <category android:name="android.intent.category.DEFAULT" />
+113-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:78:17-76
+113-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:78:27-73
+114                <category android:name="android.intent.category.BROWSABLE" />
+114-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:79:17-78
+114-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:79:27-75
+115
+116                <data
+116-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:81:17-83:50
+117                    android:host="config"
+117-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:82:21-42
+118                    android:scheme="opencyvis" />
+118-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:83:21-47
+119            </intent-filter>
+120        </activity>
+121        <activity
+121-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:87:9-91:66
+122            android:name="ai.opencyvis.ui.ConversationHistoryActivity"
+122-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:88:13-59
+123            android:exported="false"
+123-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:89:13-37
+124            android:label="Conversation History"
+124-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:90:13-49
+125            android:theme="@style/Theme.OpenCyvis.NoActionBar" />
+125-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:91:13-63
+126        <activity
+126-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:93:9-97:66
+127            android:name="ai.opencyvis.ui.ConversationDetailActivity"
+127-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:94:13-58
+128            android:exported="false"
+128-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:95:13-37
+129            android:label="Conversation Detail"
+129-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:96:13-48
+130            android:theme="@style/Theme.OpenCyvis.NoActionBar" />
+130-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:97:13-63
+131        <activity
+131-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:99:9-103:66
+132            android:name="ai.opencyvis.ui.MemoryActivity"
+132-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:100:13-46
+133            android:exported="false"
+133-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:101:13-37
+134            android:label="Memory"
+134-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:102:13-35
+135            android:theme="@style/Theme.OpenCyvis.NoActionBar" />
+135-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:103:13-63
+136        <activity
+136-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:105:9-108:66
+137            android:name="ai.opencyvis.ui.ScheduleListActivity"
+137-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:106:13-52
+138            android:exported="false"
+138-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:107:13-37
+139            android:theme="@style/Theme.AppCompat.NoActionBar" />
+139-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:108:13-63
+140        <activity
+140-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:110:9-116:66
+141            android:name="ai.opencyvis.backend.SetupActivity"
+141-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:111:13-50
+142            android:configChanges="screenSize|screenLayout|smallestScreenSize"
+142-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:114:13-79
+143            android:exported="false"
+143-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:112:13-37
+144            android:label="Backend Setup"
+144-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:113:13-42
+145            android:theme="@style/Theme.OpenCyvis.NoActionBar"
+145-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:116:13-63
+146            android:windowSoftInputMode="adjustResize" />
+146-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:115:13-55
+147        <activity
+147-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:118:9-123:40
+148            android:name="ai.opencyvis.backend.PairingDialogActivity"
+148-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:119:13-58
+149            android:excludeFromRecents="true"
+149-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:121:13-46
+150            android:exported="false"
+150-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:123:13-37
+151            android:taskAffinity=""
+151-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:122:13-36
+152            android:theme="@style/Theme.OpenCyvis.Dialog" />
+152-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:120:13-58
+153        <activity
+153-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:125:9-135:20
+154            android:name="ai.opencyvis.backend.SplitScreenPocActivity"
+154-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:126:13-59
+155            android:configChanges="screenSize|screenLayout|smallestScreenSize"
+155-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:128:13-79
+156            android:exported="true"
+156-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:127:13-36
+157            android:theme="@style/Theme.OpenCyvis.NoActionBar"
+157-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:130:13-63
+158            android:windowSoftInputMode="adjustResize" >
+158-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:129:13-55
+159            <intent-filter>
+159-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:131:13-134:29
+160                <action android:name="ai.opencyvis.SPLIT_POC" />
+160-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:132:17-65
+160-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:132:25-62
+161
+162                <category android:name="android.intent.category.DEFAULT" />
+162-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:78:17-76
+162-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:78:27-73
+163            </intent-filter>
+164        </activity>
+165
+166        <service
+166-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:137:9-144:19
+167            android:name="ai.opencyvis.AgentService"
+167-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:138:13-41
+168            android:exported="false"
+168-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:139:13-37
+169            android:foregroundServiceType="specialUse" >
+169-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:140:13-55
+170            <property
+170-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:141:13-143:52
+171                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+171-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:142:17-76
+172                android:value="ai_phone_control" />
+172-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:143:17-49
+173        </service>
+174        <service
+174-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:146:9-148:40
+175            android:name="ai.opencyvis.OverlayService"
+175-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:147:13-43
+176            android:exported="false" />
+176-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:148:13-37
+177        <service
+177-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:150:9-157:19
+178            android:name="ai.opencyvis.remoteim.RemoteImControlService"
+178-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:151:13-60
+179            android:exported="false"
+179-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:152:13-37
+180            android:foregroundServiceType="specialUse" >
+180-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:153:13-55
+181            <property
+181-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:141:13-143:52
+182                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+182-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:142:17-76
+183                android:value="remote_im_channel" />
+183-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:143:17-49
+184        </service>
+185        <service
+185-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:159:9-169:19
+186            android:name="ai.opencyvis.accessibility.VdAccessibilityService"
+186-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:160:13-65
+187            android:exported="true"
+187-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:161:13-36
+188            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+188-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:162:13-79
+189            <intent-filter>
+189-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:163:13-165:29
+190                <action android:name="android.accessibilityservice.AccessibilityService" />
+190-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:164:17-92
+190-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:164:25-89
+191            </intent-filter>
+192
+193            <meta-data
+193-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:166:13-168:72
+194                android:name="android.accessibilityservice"
+194-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:167:17-60
+195                android:resource="@xml/accessibility_service_config" />
+195-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:168:17-69
+196        </service>
+197
+198        <provider
+199            android:name="rikka.shizuku.ShizukuProvider"
+200            android:authorities="ai.opencyvis.shizuku"
+201            android:enabled="true"
+202            android:exported="true"
+203            android:multiprocess="false"
+204            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+205        <provider
+206            android:name="ai.opencyvis.backend.BinderExchangeProvider"
+207            android:authorities="ai.opencyvis.binder_exchange"
+208            android:exported="true" />
+209
+210        <service
+210-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:184:9-187:63
+211            android:name="ai.opencyvis.backend.AdbPairingService"
+211-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:185:13-54
+212            android:exported="false"
+212-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:186:13-37
+213            android:foregroundServiceType="connectedDevice" />
+213-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:187:13-60
+214
+215        <receiver
+215-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:189:9-195:20
+216            android:name="ai.opencyvis.backend.PairingBroadcastReceiver"
+216-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:190:13-61
+217            android:exported="true" >
+217-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:191:13-36
+218            <intent-filter>
+218-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:192:13-194:29
+219                <action android:name="ai.opencyvis.PAIR" />
+219-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:193:17-60
+219-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:193:25-57
+220            </intent-filter>
+221        </receiver>
+222        <receiver
+222-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:197:9-199:40
+223            android:name="ai.opencyvis.schedule.ScheduleReceiver"
+223-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:198:13-54
+224            android:exported="false" />
+224-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:199:13-37
+225        <receiver
+225-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:201:9-207:20
+226            android:name="ai.opencyvis.schedule.BootReceiver"
+226-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:202:13-50
+227            android:exported="true" >
+227-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:203:13-36
+228            <intent-filter>
+228-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:204:13-206:29
+229                <action android:name="android.intent.action.BOOT_COMPLETED" />
+229-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:205:17-79
+229-->/Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/src/main/AndroidManifest.xml:205:25-76
+230            </intent-filter>
+231        </receiver>
+232
+233        <provider
+233-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+234            android:name="androidx.startup.InitializationProvider"
+234-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+235            android:authorities="ai.opencyvis.androidx-startup"
+235-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+236            android:exported="false" >
+236-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+237            <meta-data
+237-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+238                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+238-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+239                android:value="androidx.startup" />
+239-->[androidx.emoji2:emoji2:1.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/3847ef8ca1545e5c30bda645d194f507/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+240            <meta-data
+240-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/guangnian/.gradle/caches/8.11.1/transforms/0f0b91b86e6f62853690bd379f3bb22b/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+241                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+241-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/guangnian/.gradle/caches/8.11.1/transforms/0f0b91b86e6f62853690bd379f3bb22b/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+242                android:value="androidx.startup" />
+242-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/guangnian/.gradle/caches/8.11.1/transforms/0f0b91b86e6f62853690bd379f3bb22b/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+243            <meta-data
+243-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+244                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+244-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+245                android:value="androidx.startup" />
+245-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+246        </provider>
+247        <provider
+247-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:8:9-16:20
+248            android:name="com.bihe0832.android.lib.file.provider.ZixieFileProvider"
+248-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:9:13-84
+249            android:authorities="ai.opencyvis.bihe0832.fileprovider"
+249-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:10:13-73
+250            android:exported="false"
+250-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:11:13-37
+251            android:grantUriPermissions="true" >
+251-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:12:13-47
+252            <meta-data
+252-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:13:13-15:54
+253                android:name="android.support.FILE_PROVIDER_PATHS"
+253-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:14:17-67
+254                android:resource="@xml/file_paths" />
+254-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:15:17-51
+255        </provider>
+256        <provider
+256-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:17:9-25:20
+257            android:name="com.bihe0832.android.lib.file.provider.AAFInnerFileProvider"
+257-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:18:13-87
+258            android:authorities="ai.opencyvis.aaf.inner.fileprovider"
+258-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:19:13-74
+259            android:exported="false"
+259-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:20:13-37
+260            android:grantUriPermissions="true" >
+260-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:21:13-47
+261            <meta-data
+261-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:13:13-15:54
+262                android:name="android.support.FILE_PROVIDER_PATHS"
+262-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:14:17-67
+263                android:resource="@xml/aaf_inner_file_paths" />
+263-->[com.bihe0832.android:lib-file:8.4.2] /Users/guangnian/.gradle/caches/8.11.1/transforms/b12801797a82997e2e84fc265c3cfd76/transformed/lib-file-8.4.2/AndroidManifest.xml:15:17-51
+264        </provider>
+265
+266        <uses-library
+266-->[androidx.window:window:1.0.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/0ac45bb0f2a05513677d3fe57268abf7/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+267            android:name="androidx.window.extensions"
+267-->[androidx.window:window:1.0.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/0ac45bb0f2a05513677d3fe57268abf7/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+268            android:required="false" />
+268-->[androidx.window:window:1.0.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/0ac45bb0f2a05513677d3fe57268abf7/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+269        <uses-library
+269-->[androidx.window:window:1.0.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/0ac45bb0f2a05513677d3fe57268abf7/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+270            android:name="androidx.window.sidecar"
+270-->[androidx.window:window:1.0.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/0ac45bb0f2a05513677d3fe57268abf7/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+271            android:required="false" />
+271-->[androidx.window:window:1.0.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/0ac45bb0f2a05513677d3fe57268abf7/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+272
+273        <service
+273-->[androidx.room:room-runtime:2.6.1] /Users/guangnian/.gradle/caches/8.11.1/transforms/2529f0bd5608c646ca9c78c742f0c909/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+274            android:name="androidx.room.MultiInstanceInvalidationService"
+274-->[androidx.room:room-runtime:2.6.1] /Users/guangnian/.gradle/caches/8.11.1/transforms/2529f0bd5608c646ca9c78c742f0c909/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+275            android:directBootAware="true"
+275-->[androidx.room:room-runtime:2.6.1] /Users/guangnian/.gradle/caches/8.11.1/transforms/2529f0bd5608c646ca9c78c742f0c909/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+276            android:exported="false" />
+276-->[androidx.room:room-runtime:2.6.1] /Users/guangnian/.gradle/caches/8.11.1/transforms/2529f0bd5608c646ca9c78c742f0c909/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+277
+278        <meta-data
+278-->[dev.rikka.shizuku:provider:13.1.5] /Users/guangnian/.gradle/caches/8.11.1/transforms/8cc67e45394008f1fe1ecd970dc7f9b2/transformed/provider-13.1.5/AndroidManifest.xml:11:9-13:36
+279            android:name="moe.shizuku.client.V3_SUPPORT"
+279-->[dev.rikka.shizuku:provider:13.1.5] /Users/guangnian/.gradle/caches/8.11.1/transforms/8cc67e45394008f1fe1ecd970dc7f9b2/transformed/provider-13.1.5/AndroidManifest.xml:12:13-57
+280            android:value="true" />
+280-->[dev.rikka.shizuku:provider:13.1.5] /Users/guangnian/.gradle/caches/8.11.1/transforms/8cc67e45394008f1fe1ecd970dc7f9b2/transformed/provider-13.1.5/AndroidManifest.xml:13:13-33
+281
+282        <receiver
+282-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+283            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+283-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+284            android:directBootAware="false"
+284-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+285            android:enabled="true"
+285-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+286            android:exported="true"
+286-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+287            android:permission="android.permission.DUMP" >
+287-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+288            <intent-filter>
+288-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+289                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+289-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+289-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+290            </intent-filter>
+291            <intent-filter>
+291-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+292                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+292-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+292-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+293            </intent-filter>
+294            <intent-filter>
+294-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+295                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+295-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+295-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+296            </intent-filter>
+297            <intent-filter>
+297-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+298                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+298-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+298-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/8b0ed321405e529285b79ad01f9af634/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+299            </intent-filter>
+300        </receiver>
+301
+302        <activity
+302-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:47:9-53:63
+303            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+303-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:48:13-74
+304            android:clearTaskOnLaunch="true"
+304-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:49:13-45
+305            android:screenOrientation="sensorLandscape"
+305-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:50:13-56
+306            android:stateNotNeeded="true"
+306-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:51:13-42
+307            android:theme="@style/zxing_CaptureTheme"
+307-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:52:13-54
+308            android:windowSoftInputMode="stateAlwaysHidden" />
+308-->[com.journeyapps:zxing-android-embedded:4.3.0] /Users/guangnian/.gradle/caches/8.11.1/transforms/710da40db05d679c9a34dadc37acd168/transformed/zxing-android-embedded-4.3.0/AndroidManifest.xml:53:13-60
+309    </application>
+310
+311</manifest>
