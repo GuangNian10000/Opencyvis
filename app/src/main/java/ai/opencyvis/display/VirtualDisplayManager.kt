@@ -92,6 +92,13 @@ class VirtualDisplayManager(
     val height: Int
         get() = imageReader?.height ?: DEFAULT_HEIGHT
 
+    /**
+     * Provide access to the backend for internal components (like TaskDisplayGuard)
+     * that need to register privileged listeners.
+     */
+    val privilegeBackend: PrivilegeBackend
+        get() = backend
+
     // ── Task reparenting API (delegates to PrivilegeBackend) ──────────
 
     /**

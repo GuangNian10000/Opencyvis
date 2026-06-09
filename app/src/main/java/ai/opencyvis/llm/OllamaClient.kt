@@ -87,6 +87,8 @@ class OllamaClient(
                         throw LLMException("Ollama returned empty response")
                     }
 
+                    Log.v(TAG, "Raw Ollama response: $bodyStr")
+
                     val result = parseResponse(bodyStr)
                     if (result != null) return@withContext result
 
@@ -179,8 +181,10 @@ class OllamaClient(
             put("tools", ToolSchema.toolsArray())
             put("stream", false)
             val options = JSONObject().apply {
-                put("num_predict", 800) // Limit output to prevent rambling, but enough for thought
-                put("temperature", 0.1) // Keep it deterministic
+                put("num_predict", 2048) // Increased for "thought-first" models like Gemma 4/2
+                put("temperature", 0.1)
+                put("top_p", 0.9)
+                put("stop", JSONArray(listOf("###", "User:"))) // Prevent model from generating next turn
             }
             put("options", options)
         }

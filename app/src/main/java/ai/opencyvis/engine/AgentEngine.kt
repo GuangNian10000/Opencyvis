@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.util.Log
 import ai.opencyvis.action.Action
 import ai.opencyvis.action.ActionExecutor
-import ai.opencyvis.accessibility.VdAccessibilityService
 import ai.opencyvis.capture.ScreenCapture
 import ai.opencyvis.db.GlobalMemoryEntity
 import ai.opencyvis.db.GlobalMemoryRepository
@@ -41,7 +40,6 @@ class AgentEngine(
     private val virtualDisplayManager: VirtualDisplayManager? = null,
     private val debugMode: Boolean = false,
     private val memoryRepository: GlobalMemoryRepository? = null,
-    private val viewTreeProvider: ((Int, Int, Int) -> String?)? = null,
     private val shouldForwardScreenshot: (() -> Boolean)? = null,
     private val blacklistedPackages: Set<String> = emptySet(),
     private val onSaveRoutine: ((
@@ -198,7 +196,6 @@ class AgentEngine(
         val notes = mutableMapOf<String, String>()
         var pendingUserAnswer: String? = null
         var pendingActionFeedback: String? = null
-        var prevViewTree: String? = null
         var prevActionType: String? = null
         var prevScreenFingerprint: ScreenFingerprint? = null
         var consecutiveUnchangedScreens = 0
@@ -219,37 +216,40 @@ class AgentEngine(
                     if (!scope.isActive) return
                 }
 
+                val stepStartTime = System.currentTimeMillis()
+
                 // === BLACKLIST GATE ===
-                if (blacklistedPackages.isNotEmpty()) {
-                    val displayId = virtualDisplayManager?.displayId ?: 0
-                    val topPkg = VdAccessibilityService.getTopPackageOnDisplay(displayId)
-                    if (topPkg != null && topPkg in blacklistedPackages) {
-                        Log.i(TAG, "Blacklist gate: protected app $topPkg active at step $step")
-                        val reason = "Protected app ($topPkg) is active. Returning control to user."
+                // Use vision-based or system API detection to ensure agent doesn't operate in blacklisted apps.
+                val vdm = virtualDisplayManager
+                val topTaskId = vdm?.getTopTaskIdOnDisplay(vdm.displayId) ?: -1
+                if (topTaskId > 0) {
+                    val topPackage = actionExecutor.getTopPackageName(topTaskId)
+                    if (topPackage != null && topPackage in blacklistedPackages) {
+                        Log.w(TAG, "Step $step: Agent entered blacklisted app $topPackage, triggering handoff")
+                        val reason = "I've entered an app ($topPackage) that is on your blacklist. Please take over if you'd like to continue here, or I can return to the home screen."
                         _state.value = AgentState.WaitingForHandoff(reason, step)
                         _stepResults.emit(
-                            StepResult(step, "blacklist_handoff", "Protected app detected",
-                                true, reason, 0, false)
+                            StepResult(step, "blacklist_gate", "Blacklisted app detected",
+                                true, reason, System.currentTimeMillis() - stepStartTime, false)
                         )
+
                         val deferred = CompletableDeferred<String?>()
                         userHandoffDeferred = deferred
                         val handoffSource = deferred.await()
                         userHandoffDeferred = null
+
                         if (handoffSource == null) {
                             _state.value = AgentState.Idle()
                             return
                         }
-                        pendingActionFeedback = "User returned control after protected app."
+                        pendingActionFeedback = "User returned control after blacklist gate."
                         continue
                     }
                 }
-
-                val stepStartTime = System.currentTimeMillis()
                 _state.value = AgentState.Running(step, "Capturing screenshot...")
 
                 // === OBSERVE ===
                 val t0 = System.currentTimeMillis()
-                val vdm = virtualDisplayManager
                 val screenshotBase64: String? = if (vdm != null) {
                     captureVirtualDisplay(vdm, step)
                 } else {
@@ -328,28 +328,11 @@ class AgentEngine(
                     continue  // take fresh screenshot
                 }
 
-                // === VIEW TREE ===
-                val viewTree: String? = if (vdm != null && viewTreeProvider != null) {
-                    try {
-                        viewTreeProvider.invoke(vdm.displayId, vdm.width, vdm.height)
-                    } catch (e: Exception) {
-                        Log.w(TAG, "ViewTree capture failed", e)
-                        null
-                    }
-                } else null
-                if (viewTree != null) {
-                    Log.i(TAG, "Step $step ViewTree: ${viewTree.length} chars, ${viewTree.lines().size} nodes")
-                }
+                // === VIEW TREE REMOVED ===
+                // Vision-only mode: the agent no longer captures UI view trees.
+                val viewTree: String? = null
 
-                // Detect unchanged screen after side-effect action (viewTree-based)
-                if (step > 1 && prevActionType in SIDE_EFFECT_ACTIONS &&
-                    prevViewTree != null && viewTree != null &&
-                    prevViewTree == viewTree && pendingActionFeedback == null) {
-                    pendingActionFeedback = String.format(
-                        LlmPrompts.agentFeedback("screen_unchanged"), prevActionType
-                    )
-                    Log.w(TAG, "Step $step: screen unchanged after $prevActionType action (viewTree)")
-                }
+                // Detect unchanged screen after side-effect action
 
                 // Detect unchanged screen via ScreenFingerprint (works without accessibility service)
                 if (step > 1 && prevActionType in SIDE_EFFECT_ACTIONS && screenFingerprint != null) {
@@ -692,7 +675,6 @@ class AgentEngine(
                 Log.i(TAG, "Step $step TIMING: capture=${captureMs}ms encode=${encodeMs}ms llm=${llmMs}ms action=${actionMs}ms total=${totalMs}ms [$actionType]")
 
                 // Wait for screen update before next step
-                prevViewTree = viewTree
                 prevActionType = actionType
                 delay(if (actionType == "open_app") 2000 else 1000)
 

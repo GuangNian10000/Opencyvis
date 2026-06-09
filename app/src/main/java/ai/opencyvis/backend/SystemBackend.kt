@@ -3,6 +3,7 @@ package ai.opencyvis.backend
 import android.util.Log
 import android.view.InputEvent
 import android.view.Surface
+import ai.opencyvis.backend.ITaskStackListener
 
 class SystemBackend : PrivilegeBackend {
     override val capabilities = BackendCapabilities.SYSTEM
@@ -63,6 +64,20 @@ class SystemBackend : PrivilegeBackend {
 
     override fun moveTaskToDisplay(taskId: Int, targetDisplayId: Int): Boolean {
         return DisplayOps.moveTaskToDisplay(taskId, targetDisplayId)
+    }
+
+    private var localListenerProxy: Any? = null
+
+    override fun registerTaskStackListener(listener: ITaskStackListener) {
+        if (localListenerProxy != null) return
+        localListenerProxy = DisplayOps.registerTaskStackListener(listener)
+    }
+
+    override fun unregisterTaskStackListener(listener: ITaskStackListener) {
+        localListenerProxy?.let {
+            DisplayOps.unregisterTaskStackListener(it)
+            localListenerProxy = null
+        }
     }
 
     override fun destroy() {}

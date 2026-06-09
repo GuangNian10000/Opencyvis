@@ -69,20 +69,14 @@ class TaskDisplayGuard(
     @Volatile
     private var dispatchingEscape = false
 
-    private var listener: TaskStackListener? = null
+    private var remoteListener: ai.opencyvis.backend.ITaskStackListener? = null
     private var fallbackJob: Job? = null
 
     fun start() {
         if (running) return
         running = true
-        val listenerRegistered = registerTaskStackListener()
-        if (!listenerRegistered) {
-            startFallbackScan()
-        } else {
-            // Keep a very low-cost correction path even if callbacks miss a
-            // task created by notification/deeplink flows.
-            startFallbackScan()
-        }
+        registerTaskStackListener()
+        startFallbackScan()
     }
 
     fun stop() {
@@ -155,16 +149,19 @@ class TaskDisplayGuard(
 
     fun controlledPackagesSnapshot(): Set<String> = synchronized(lock) { controlledPackages.toSet() }
 
-    private fun registerTaskStackListener(): Boolean {
-        return try {
-            val atm = Class.forName("android.app.ActivityTaskManager")
-                .getMethod("getService")
-                .invoke(null)
-            val listenerType = Class.forName("android.app.ITaskStackListener")
-            val method = atm.javaClass.getMethod("registerTaskStackListener", listenerType)
-            listener = object : TaskStackListener() {
-                override fun onTaskMovedToFront(taskInfo: ActivityManager.RunningTaskInfo) {
-                    vdm.toTaskSnapshot(taskInfo)?.let { maybeDispatchEscape(it) }
+    private fun registerTaskStackListener() {
+        try {
+            val backend = vdm.privilegeBackend
+            val listener = object : ai.opencyvis.backend.ITaskStackListener.Stub() {
+                override fun onTaskMovedToFront(taskId: Int, displayId: Int, topPackage: String?) {
+                    if (displayId != Display.DEFAULT_DISPLAY) return
+                    maybeDispatchEscape(TaskSnapshot(
+                        taskId = taskId,
+                        displayId = displayId,
+                        topPackage = topPackage,
+                        basePackage = null,
+                        lastActiveTime = SystemClock.elapsedRealtime()
+                    ))
                 }
 
                 override fun onTaskDisplayChanged(taskId: Int, newDisplayId: Int) {
@@ -172,9 +169,8 @@ class TaskDisplayGuard(
                     vdm.getTaskSnapshot(taskId)?.let { maybeDispatchEscape(it) }
                 }
 
-                override fun onTaskCreated(taskId: Int, componentName: ComponentName?) {
-                    val packageName = componentName?.packageName ?: return
-                    if (!isControlledPackage(packageName)) return
+                override fun onTaskCreated(taskId: Int, packageName: String?) {
+                    if (packageName == null || !isControlledPackage(packageName)) return
                     vdm.getTaskSnapshot(taskId)?.let { maybeDispatchEscape(it) }
                 }
 
@@ -182,30 +178,23 @@ class TaskDisplayGuard(
                     removeControlledTask(taskId)
                 }
             }
-            method.invoke(atm, listener)
-            Log.i(TAG, "TaskStackListener registered")
-            true
+            backend.registerTaskStackListener(listener)
+            remoteListener = listener
+            Log.i(TAG, "TaskStackListener registered via PrivilegedService")
         } catch (e: Exception) {
-            Log.w(TAG, "TaskStackListener registration failed; using fallback scan: ${e.message}")
-            listener = null
-            false
+            Log.w(TAG, "Failed to register TaskStackListener via backend: ${e.message}")
         }
     }
 
     private fun unregisterTaskStackListener() {
-        val current = listener ?: return
+        val current = remoteListener ?: return
         try {
-            val atm = Class.forName("android.app.ActivityTaskManager")
-                .getMethod("getService")
-                .invoke(null)
-            val listenerType = Class.forName("android.app.ITaskStackListener")
-            val method = atm.javaClass.getMethod("unregisterTaskStackListener", listenerType)
-            method.invoke(atm, current)
-            Log.i(TAG, "TaskStackListener unregistered")
+            vdm.privilegeBackend.unregisterTaskStackListener(current)
+            Log.i(TAG, "TaskStackListener unregistered via PrivilegedService")
         } catch (e: Exception) {
-            Log.w(TAG, "TaskStackListener unregister failed: ${e.message}")
+            Log.w(TAG, "Failed to unregister TaskStackListener via backend: ${e.message}")
         } finally {
-            listener = null
+            remoteListener = null
         }
     }
 

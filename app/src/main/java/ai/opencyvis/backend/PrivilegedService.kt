@@ -17,6 +17,9 @@ import android.view.MotionEvent
 import android.view.Surface
 import java.io.ByteArrayOutputStream
 
+import android.os.IBinder
+import ai.opencyvis.backend.ITaskStackListener
+
 class PrivilegedService : IPrivilegedService.Stub() {
 
     companion object {
@@ -547,6 +550,28 @@ class PrivilegedService : IPrivilegedService.Stub() {
         } catch (e: Exception) {
             Log.w(TAG, "forceStopPackage failed: ${e.message}")
         }
+    }
+
+    private val remoteListeners = mutableMapOf<IBinder, android.app.TaskStackListener>()
+
+    override fun registerTaskStackListener(listener: ITaskStackListener) {
+        checkCaller()
+        val binder = listener.asBinder()
+        if (remoteListeners.containsKey(binder)) return
+
+        val proxy = DisplayOps.registerTaskStackListener(listener) ?: return
+        remoteListeners[binder] = proxy as android.app.TaskStackListener
+        binder.linkToDeath({
+            unregisterTaskStackListener(listener)
+        }, 0)
+        Log.i(TAG, "TaskStackListener registered in PrivilegedService")
+    }
+
+    override fun unregisterTaskStackListener(listener: ITaskStackListener) {
+        val binder = listener.asBinder()
+        val proxy = remoteListeners.remove(binder) ?: return
+        DisplayOps.unregisterTaskStackListener(proxy)
+        Log.i(TAG, "TaskStackListener unregistered in PrivilegedService")
     }
 
     override fun releaseVirtualDisplay() {

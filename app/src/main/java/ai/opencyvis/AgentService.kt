@@ -16,7 +16,6 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import ai.opencyvis.action.ActionExecutor
-import ai.opencyvis.accessibility.VdAccessibilityService
 import ai.opencyvis.backend.BackendDetector
 import ai.opencyvis.backend.ConnectionState
 import ai.opencyvis.backend.DetectionResult
@@ -164,7 +163,6 @@ class AgentService : Service() {
         historyRepo = ChatHistoryRepository(this)
         memoryRepo = GlobalMemoryRepository(this)
         createNotificationChannel()
-        ensureAccessibilityServiceEnabled()
         // Mark stale "running" conversations as stopped — agent can't survive process restart
         scope.launch {
             historyRepo.markStaleRunningAsStopped()
@@ -233,87 +231,6 @@ class AgentService : Service() {
     }
 
     private fun observeConnectorState(b: PrivilegeBackend) {
-        disconnectObserverJob?.cancel()
-        if (b !is RemoteBackend) return
-
-        disconnectObserverJob = scope.launch {
-            b.connector.state.collect { state ->
-                when (state) {
-                    is ConnectionState.Disconnected -> {
-                        val isEngineRunning = engine?.state?.value is AgentState.Running
-                        if (isEngineRunning) {
-                            Log.w(TAG, "Backend disconnected during active task, pausing")
-                            engine?.pause()
-                            disconnectTimestamp = System.currentTimeMillis()
-                            updateNotification("⏸ Paused — reconnecting...")
-                        } else {
-                            Log.w(TAG, "Backend disconnected while idle")
-                        }
-
-                        // Attempt auto-reconnect
-                        val wirelessOn = SetupStateDetector.isWirelessDebuggingEnabled(this@AgentService)
-                        if (wirelessOn) {
-                            Log.i(TAG, "Wireless debugging still on, attempting auto-reconnect...")
-                            var reconnected = false
-                            for (attempt in 1..5) {
-                                delay(3000L * attempt)
-                                if (retryBackendDetection()) {
-                                    Log.i(TAG, "Auto-reconnect succeeded on attempt $attempt")
-                                    reconnected = true
-                                    break
-                                }
-                            }
-                            if (!reconnected) {
-                                Log.w(TAG, "Auto-reconnect failed after 5 attempts")
-                                backend = null
-                                ScreenCapture.backend = SystemBackend()
-                            }
-                        } else {
-                            Log.i(TAG, "Wireless debugging is off, clearing backend")
-                            backend = null
-                            ScreenCapture.backend = SystemBackend()
-                        }
-                    }
-                    is ConnectionState.Connected -> {
-                        val wasDisconnected = disconnectTimestamp != null
-                        val isEnginePaused = engine?.state?.value is AgentState.Paused
-                        if (wasDisconnected && isEnginePaused) {
-                            val elapsed = System.currentTimeMillis() - disconnectTimestamp!!
-                            disconnectTimestamp = null
-
-                            if (elapsed > 10_000) {
-                                Log.i(TAG, "Long disconnect (${elapsed}ms), resuming with fresh state")
-                            }
-                            engine?.resume()
-                            updateNotification("Running: ${currentInstruction.take(30)}...")
-                            Log.i(TAG, "Backend reconnected after ${elapsed}ms, resumed agent")
-                        }
-                    }
-                    else -> {}
-                }
-            }
-        }
-    }
-
-    private fun ensureAccessibilityServiceEnabled() {
-        try {
-            val componentName = "${packageName}/${packageName}.accessibility.VdAccessibilityService"
-            val existing = android.provider.Settings.Secure.getString(
-                contentResolver, android.provider.Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
-            ) ?: ""
-            if (componentName in existing) return
-
-            val updated = if (existing.isBlank()) componentName else "$existing:$componentName"
-            android.provider.Settings.Secure.putString(
-                contentResolver, android.provider.Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES, updated
-            )
-            android.provider.Settings.Secure.putInt(
-                contentResolver, android.provider.Settings.Secure.ACCESSIBILITY_ENABLED, 1
-            )
-            Log.i(TAG, "Auto-enabled VdAccessibilityService")
-        } catch (e: Exception) {
-            Log.w(TAG, "Failed to auto-enable accessibility service (requires system app)", e)
-        }
     }
 
     // ── Agent lifecycle ─────────────────────────────────────────────────
@@ -429,9 +346,6 @@ class AgentService : Service() {
                 vdm,
                 config.debugMode,
                 memoryRepo,
-                viewTreeProvider = { displayId, w, h ->
-                    VdAccessibilityService.captureViewTree(displayId, w, h)
-                },
                 shouldForwardScreenshot = { config.imSendStepScreenshots },
                 blacklistedPackages = config.blacklistedPackages,
                 onSaveRoutine = { name, icon, instr, schedType, schedTime, schedRepeat,
@@ -556,9 +470,6 @@ class AgentService : Service() {
             vdm,
             debugMode = true,
             memoryRepository = memoryRepo,
-            viewTreeProvider = { displayId, w, h ->
-                VdAccessibilityService.captureViewTree(displayId, w, h)
-            },
             blacklistedPackages = config.blacklistedPackages
         )
         engine = newEngine

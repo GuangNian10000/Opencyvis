@@ -100,6 +100,7 @@ object ResponseParser {
 
     /**
      * Extract a JSON object from text that may contain markdown fences or other wrapping.
+     * Prioritizes blocks containing "action_type" and searches from the end for thought-first models.
      */
     fun extractJsonFromText(text: String): Map<String, Any?>? {
         // Try direct parse first
@@ -107,30 +108,39 @@ object ResponseParser {
             return jsonObjectToMap(JSONObject(text))
         } catch (_: Exception) {}
 
-        // Try to find JSON in markdown code blocks (escape } for Android ICU regex)
+        // Try to find JSON in markdown code blocks
         try {
             val codeBlockPattern = Regex("```(?:json)?\\s*\\n?(\\{.*?\\})\\s*\\n?```", RegexOption.DOT_MATCHES_ALL)
-            val codeBlockMatch = codeBlockPattern.find(text)
-            if (codeBlockMatch != null) {
+            val codeBlockMatches = codeBlockPattern.findAll(text).toList()
+            for (match in codeBlockMatches.asReversed()) {
                 try {
-                    return jsonObjectToMap(JSONObject(codeBlockMatch.groupValues[1]))
+                    val map = jsonObjectToMap(JSONObject(match.groupValues[1]))
+                    if (map.containsKey("action_type")) return map
                 } catch (_: Exception) {}
             }
         } catch (_: Exception) {}
 
-        // Try to find any JSON object in the text
+        // Try to find any balanced JSON object in the text, searching from the end.
+        // This is robust for "thought-first" models like Gemma 4 which output a long thought
+        // (sometimes containing braces) followed by the action JSON.
         try {
-            val jsonPattern = Regex("\\{[^{}]*(?:\\{[^{}]*\\}[^{}]*)*\\}", RegexOption.DOT_MATCHES_ALL)
-            val jsonMatch = jsonPattern.find(text)
-            if (jsonMatch != null) {
+            // Find all potential JSON blocks using a pattern for balanced braces (up to 3 levels)
+            val jsonPattern = Regex("\\{(?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*\\}", RegexOption.DOT_MATCHES_ALL)
+            val matches = jsonPattern.findAll(text).toList()
+            
+            // Iterate backwards to find the last valid action JSON
+            for (match in matches.asReversed()) {
                 try {
-                    return jsonObjectToMap(JSONObject(jsonMatch.value))
+                    val map = jsonObjectToMap(JSONObject(match.value))
+                    // If it looks like an action (has action_type or thought), return it
+                    if (map.containsKey("action_type") || map.containsKey("thought")) {
+                        return map
+                    }
                 } catch (_: Exception) {}
             }
         } catch (_: Exception) {}
 
         // Last resort: regex-based field extraction for malformed JSON
-        // (e.g. unescaped quotes inside string values from some models)
         val fields = extractFieldsFromMalformedJson(text)
         if (fields != null) return fields
 
@@ -164,16 +174,18 @@ object ResponseParser {
         }
 
         // Extract simple string fields (no embedded quotes expected)
-        for (field in listOf("app_name", "direction", "key", "text", "reason", "question", "note", "memory_key", "memory_value", "memory_category")) {
+        for (field in listOf("thought", "app_name", "direction", "key", "text", "reason", "question", "note", "memory_key", "memory_value", "memory_category")) {
             Regex("\"$field\"\\s*:\\s*\"([^\"]+)\"").find(text)?.let {
                 map[field] = it.groupValues[1]
             }
         }
 
-        // Extract thought: grab everything between "thought":"..." up to the next known field
-        Regex("\"thought\"\\s*:\\s*\"(.*?)\"\\s*,\\s*\"(?:action_type|completed|x|y|app_name|direction|key|text|reason|question)\"",
-            RegexOption.DOT_MATCHES_ALL).find(text)?.let {
-            map["thought"] = it.groupValues[1]
+        // Extract thought (alternate: grab everything between "thought":"..." up to the next known field or end of JSON)
+        if (!map.containsKey("thought")) {
+            Regex("\"thought\"\\s*:\\s*\"(.*?)\"(?:\\s*,\\s*\"(?:action_type|completed|x|y|app_name|direction|key|text|reason|question)\"|\\s*\\})",
+                RegexOption.DOT_MATCHES_ALL).find(text)?.let {
+                map["thought"] = it.groupValues[1]
+            }
         }
 
         if (map.containsKey("action_type")) {

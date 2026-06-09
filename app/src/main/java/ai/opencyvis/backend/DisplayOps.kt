@@ -5,6 +5,7 @@ import android.os.IBinder
 import android.util.Log
 import android.view.Display
 import java.lang.reflect.Method
+import ai.opencyvis.backend.ITaskStackListener
 
 /**
  * Reflection-based privileged operations for display/task management.
@@ -41,13 +42,23 @@ object DisplayOps {
     }
 
     fun moveTaskToDisplay(taskId: Int, targetDisplayId: Int): Boolean {
-        return try {
-            moveTaskMethod?.invoke(activityTaskManager, taskId, targetDisplayId)
+        val atm = activityTaskManager ?: return false
+        try {
+            // Validate current display to prevent unnecessary moves or potential illegal arguments
+            val tasks = getTasksForDisplay(atm, targetDisplayId)
+            for (t in tasks) {
+                if (t != null && readIntField(t, "taskId") == taskId) {
+                    Log.d(TAG, "Task $taskId is already on display $targetDisplayId")
+                    return true
+                }
+            }
+
+            moveTaskMethod?.invoke(atm, taskId, targetDisplayId)
             Log.i(TAG, "Moved task $taskId to display $targetDisplayId")
-            true
+            return true
         } catch (e: Exception) {
             Log.e(TAG, "moveTaskToDisplay($taskId, $targetDisplayId) failed", e)
-            false
+            return false
         }
     }
 
@@ -164,6 +175,68 @@ object DisplayOps {
     }
 
     // ── Field reading helpers (for TaskInfo parsing) ────────────────────
+
+    fun registerTaskStackListener(listener: ITaskStackListener): Any? {
+        val proxy = object : android.app.TaskStackListener() {
+            override fun onTaskMovedToFront(taskInfo: android.app.ActivityManager.RunningTaskInfo) {
+                try {
+                    val pkg = taskInfo.topActivity?.packageName ?: ""
+                    val displayId = try {
+                        taskInfo.javaClass.getField("displayId").get(taskInfo) as Int
+                    } catch (_: Exception) { 0 }
+                    listener.onTaskMovedToFront(taskInfo.taskId, displayId, pkg)
+                } catch (e: Exception) {
+                    Log.w(TAG, "Failed to dispatch onTaskMovedToFront", e)
+                }
+            }
+
+            override fun onTaskDisplayChanged(taskId: Int, newDisplayId: Int) {
+                try {
+                    listener.onTaskDisplayChanged(taskId, newDisplayId)
+                } catch (e: Exception) {
+                    Log.w(TAG, "Failed to dispatch onTaskDisplayChanged", e)
+                }
+            }
+
+            override fun onTaskCreated(taskId: Int, componentName: android.content.ComponentName?) {
+                try {
+                    listener.onTaskCreated(taskId, componentName?.packageName ?: "")
+                } catch (e: Exception) {
+                    Log.w(TAG, "Failed to dispatch onTaskCreated", e)
+                }
+            }
+
+            override fun onTaskRemoved(taskId: Int) {
+                try {
+                    listener.onTaskRemoved(taskId)
+                } catch (e: Exception) {
+                    Log.w(TAG, "Failed to dispatch onTaskRemoved", e)
+                }
+            }
+        }
+
+        return try {
+            val atm = activityTaskManager ?: return null
+            val listenerType = Class.forName("android.app.ITaskStackListener")
+            val method = atm.javaClass.getMethod("registerTaskStackListener", listenerType)
+            method.invoke(atm, proxy)
+            proxy
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to register TaskStackListener", e)
+            null
+        }
+    }
+
+    fun unregisterTaskStackListener(proxy: Any) {
+        try {
+            val atm = activityTaskManager ?: return
+            val listenerType = Class.forName("android.app.ITaskStackListener")
+            val method = atm.javaClass.getMethod("unregisterTaskStackListener", listenerType)
+            method.invoke(atm, proxy)
+        } catch (e: Exception) {
+            Log.w(TAG, "Failed to unregister TaskStackListener", e)
+        }
+    }
 
     fun readIntField(target: Any, fieldName: String): Int? {
         return try { readField(target, fieldName) as? Int } catch (_: Exception) { null }

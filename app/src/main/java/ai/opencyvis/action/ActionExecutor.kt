@@ -64,22 +64,19 @@ class ActionExecutor(
         val (success, detail) = try {
             // Apply coordinate compensation for virtual displays that use a top bezel/offset.
             // The AI sees a screenshot that has been shifted down by TOP_BEZEL_Y_PERCENT (6%).
-            // realY = (AI_Y - bezelOffset) / (1 - bezelOffset)
-            // For physical display (displayId == 0), we disable this compensation.
+            // y_AI = y_real + offset. Therefore, y_real = y_AI - offset.
+            // Since it is a translation (shifting) and NOT scaling, we simply subtract the offset.
             val offsetUnits = if (displayId == 0) 0 else (ImageUtil.TOP_BEZEL_Y_PERCENT * 1000).toInt()
             
             when (action) {
                 is Action.Tap -> {
-                    // Precise linear remapping: 
-                    // AI y=offsetUnits maps to real y=0
-                    // AI y=1000 maps to real y=1000
                     var realY = if (offsetUnits > 0) {
                         if (action.y >= offsetUnits) {
-                            ((action.y - offsetUnits) * 1000 / (1000 - offsetUnits))
+                            action.y - offsetUnits
                         } else 0
                     } else action.y
                     
-                    // Extra compensation for bottom area (e.g. WeChat input box)
+                    // Extra compensation for bottom area (e.g. WeChat/Meituan bottom buttons)
                     // If AI clicks near bottom (y > 900), ensure it doesn't undershoot
                     if (displayId != 0 && action.y > 900) {
                         realY = Math.min(1000, realY + 5)
@@ -93,7 +90,7 @@ class ActionExecutor(
                 is Action.LongPress -> {
                     var realY = if (offsetUnits > 0) {
                         if (action.y >= offsetUnits) {
-                            ((action.y - offsetUnits) * 1000 / (1000 - offsetUnits))
+                            action.y - offsetUnits
                         } else 0
                     } else action.y
                     
@@ -202,6 +199,17 @@ class ActionExecutor(
             durationMs = duration,
             completed = completed
         )
+    }
+
+    fun getTopPackageName(taskId: Int): String? {
+        return try {
+            val am = context.getSystemService(Context.ACTIVITY_SERVICE) as android.app.ActivityManager
+            val tasks = am.getRunningTasks(100)
+            tasks.find { it.id == taskId }?.topActivity?.packageName
+        } catch (e: Exception) {
+            android.util.Log.w("ActionExecutor", "Failed to get package for task $taskId: ${e.message}")
+            null
+        }
     }
 
     private fun isLauncherOnTop(): Boolean {

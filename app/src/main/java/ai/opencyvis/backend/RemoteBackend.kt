@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import ai.opencyvis.backend.ITaskStackListener
 
 class RemoteBackend(
     val connector: ServiceConnector,
@@ -126,6 +127,16 @@ class RemoteBackend(
     override fun moveTaskToDisplay(taskId: Int, targetDisplayId: Int): Boolean {
         return try { binder.moveTaskToDisplay(taskId, targetDisplayId) }
                catch (_: Exception) { false }
+    }
+
+    override fun registerTaskStackListener(listener: ITaskStackListener) {
+        try { binder.registerTaskStackListener(listener) }
+        catch (_: Exception) {}
+    }
+
+    override fun unregisterTaskStackListener(listener: ITaskStackListener) {
+        try { binder.unregisterTaskStackListener(listener) }
+        catch (_: Exception) {}
     }
 
     override fun destroy() {

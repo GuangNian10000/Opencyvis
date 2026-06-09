@@ -3,6 +3,8 @@ package ai.opencyvis.backend;
 import android.os.SharedMemory;
 import android.view.Surface;
 
+import ai.opencyvis.backend.ITaskStackListener;
+
 interface IPrivilegedService {
     int getServiceUid();
 
@@ -32,4 +34,8 @@ interface IPrivilegedService {
     /** Force-stop a package (shell uid). Used to dismiss split-screen by killing the
         adjacent Settings pane after ADB pairing completes. */
     void forceStopPackage(String packageName);
+
+    /** Registration for task stack events, since app process is restricted. */
+    void registerTaskStackListener(in ITaskStackListener listener);
+    void unregisterTaskStackListener(in ITaskStackListener listener);
 }

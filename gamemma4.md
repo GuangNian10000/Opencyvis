@@ -20,7 +20,7 @@ ollama stop gemma4:26b-a4b-it-q4_K_M
 ### A. 环境变量启动调试服务
 首先退出菜单栏中的 Ollama 应用，然后在终端中运行：
 ```bash
-OLLAMA_DEBUG=1 ollama serve
+OLLAMA_HOST=0.0.0.0:11434 OLLAMA_DEBUG=1 ollama serve
 ```
 这将会在终端直接输出详细的调试日志。
 
@@ -35,3 +35,5 @@ tail -f ~/.ollama/logs/server.log
 ```bash
 ollama ps
 ```
+
+curl http://localhost:11434/api/tags
