@@ -685,7 +685,13 @@ class AgentEngine(
 
                 // Wait for screen update before next step
                 prevActionType = actionType
-                delay(if (actionType == "open_app") 2000 else 1000)
+                val waitMs = when (actionType) {
+                    "open_app" -> 2000L
+                    "type_text" -> 1500L
+                    "tap" -> 1000L
+                    else -> 1000L
+                }
+                delay(waitMs)
             }
 
             // Max steps reached
