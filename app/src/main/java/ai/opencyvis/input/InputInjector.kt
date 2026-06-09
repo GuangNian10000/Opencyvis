@@ -337,7 +337,9 @@ class InputInjector(
 
         var success = true
         for (event in events) {
-            val e = KeyEvent.changeFlags(event, event.flags)
+            val e = KeyEvent.changeFlags(event, event.flags).apply {
+                source = InputDevice.SOURCE_KEYBOARD
+            }
             if (!injectEvent(e)) success = false
             delay(5)
         }
@@ -351,8 +353,12 @@ class InputInjector(
         // directly — more reliable than Ctrl+V which depends on the focused view
         // intercepting the key combo. Matches scrcpy's approach.
         val downTime = SystemClock.uptimeMillis()
-        val down = KeyEvent(downTime, downTime, KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_PASTE, 0)
-        val up = KeyEvent(downTime, downTime + 50, KeyEvent.ACTION_UP, KeyEvent.KEYCODE_PASTE, 0)
+        val down = KeyEvent(downTime, downTime, KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_PASTE, 0).apply {
+            source = InputDevice.SOURCE_KEYBOARD
+        }
+        val up = KeyEvent(downTime, downTime + 50, KeyEvent.ACTION_UP, KeyEvent.KEYCODE_PASTE, 0).apply {
+            source = InputDevice.SOURCE_KEYBOARD
+        }
         return injectEvent(down) && injectEvent(up)
     }
 

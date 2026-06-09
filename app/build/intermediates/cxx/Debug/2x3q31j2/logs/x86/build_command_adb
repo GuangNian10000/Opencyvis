@@ -1,4 +1,0 @@
-/Users/guangnian/Library/Android/sdk/cmake/3.22.1/bin/ninja \
-  -C \
-  /Users/guangnian/work/personal/android/opencyvis-phone-main/android/app/.cxx/Debug/2x3q31j2/x86 \
-  adb

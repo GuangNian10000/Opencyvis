@@ -1,8 +1,41 @@
+# Built artifacts
+bin/
+gen/
+out/
+build/
 .gradle/
+
+# Android Studio / IntelliJ
 .idea/
-local.properties
 *.iml
-/build
+*.iws
+*.ipr
 /captures
 .externalNativeBuild
-.cxx
+.cxx/
+.navigation/
+assetWizardSettings.xml
+
+# Local configuration
+local.properties
+
+# Log files
+*.log
+
+# Keystore files
+*.jks
+*.keystore
+*.p12
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Kotlin
+.kotlin/
+
+# Google Services
+# google-services.json
+# EXPLICIT: Don't ignore the wrapper itself
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
