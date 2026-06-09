@@ -67,14 +67,17 @@ object ImageUtil {
         val rgb = convertToRgb(resized)
         
         val finalBitmap = if (applyBezel) {
-            // Create a new bitmap with a "bezel" to shift content down
+            // Create a new bitmap with a "bezel" at the top.
+            // Scale the app content to fit in the remaining height to avoid cutting off the bottom.
             val bezelBitmap = Bitmap.createBitmap(rgb.width, rgb.height, Bitmap.Config.ARGB_8888)
             val canvas = android.graphics.Canvas(bezelBitmap)
             canvas.drawColor(android.graphics.Color.BLACK) // Bezel color
             
-            // Draw the app content shifted down
             val offsetPx = rgb.height * TOP_BEZEL_Y_PERCENT
-            canvas.drawBitmap(rgb, 0f, offsetPx, null)
+            val destRect = android.graphics.RectF(0f, offsetPx, rgb.width.toFloat(), rgb.height.toFloat())
+            // Draw scaled content to preserve all app pixels within the visible area
+            val paint = android.graphics.Paint(android.graphics.Paint.FILTER_BITMAP_FLAG)
+            canvas.drawBitmap(rgb, null, destRect, paint)
             bezelBitmap
         } else {
             rgb

@@ -62,24 +62,24 @@ class ActionExecutor(
         }
 
         val (success, detail) = try {
-            // Apply coordinate compensation for virtual displays that use a top bezel/offset.
-            // The AI sees a screenshot that has been shifted down by TOP_BEZEL_Y_PERCENT (6%).
-            // y_AI = y_real + offset. Therefore, y_real = y_AI - offset.
-            // Since it is a translation (shifting) and NOT scaling, we simply subtract the offset.
+            // The AI sees a screenshot where the app content is scaled and shifted.
+            // Screen scale factor: S = 1.0 - TOP_BEZEL_Y_PERCENT
+            // y_AI = y_real * S + offset. Therefore, y_real = (y_AI - offset) / S.
             val offsetUnits = if (displayId == 0) 0 else (ImageUtil.TOP_BEZEL_Y_PERCENT * 1000).toInt()
+            val scaleFactor = if (displayId == 0) 1.0 else (1.0 - ImageUtil.TOP_BEZEL_Y_PERCENT)
             
             when (action) {
                 is Action.Tap -> {
                     var realY = if (offsetUnits > 0) {
                         if (action.y >= offsetUnits) {
-                            action.y - offsetUnits
+                            ((action.y - offsetUnits) / scaleFactor).toInt()
                         } else 0
                     } else action.y
                     
                     // Extra compensation for bottom area (e.g. WeChat/Meituan bottom buttons)
                     // If AI clicks near bottom (y > 900), ensure it doesn't undershoot
                     if (displayId != 0 && action.y > 900) {
-                        realY = Math.min(1000, realY + 5)
+                        realY = Math.min(1000, realY + 10)
                     }
 
                     val ok = inputInjector.tap(action.x, realY)
@@ -90,12 +90,12 @@ class ActionExecutor(
                 is Action.LongPress -> {
                     var realY = if (offsetUnits > 0) {
                         if (action.y >= offsetUnits) {
-                            action.y - offsetUnits
+                            ((action.y - offsetUnits) / scaleFactor).toInt()
                         } else 0
                     } else action.y
                     
                     if (displayId != 0 && action.y > 900) {
-                        realY = Math.min(1000, realY + 5)
+                        realY = Math.min(1000, realY + 10)
                     }
 
                     val ok = inputInjector.longPress(action.x, realY)
