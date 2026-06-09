@@ -52,7 +52,7 @@ class AgentEngine(
     companion object {
         private const val TAG = "AgentEngine"
         val SIDE_EFFECT_ACTIONS = setOf("tap", "swipe", "type_text", "key_event", "open_app", "long_press")
-        private const val MAX_HISTORY_MESSAGES = 100
+        private const val MAX_HISTORY_MESSAGES = 10
         private const val VD_CAPTURE_MAX_ATTEMPTS = 8
         private const val VD_CAPTURE_RETRY_DELAY_MS = 300L
         private const val VD_IMAGE_READER_TIMEOUT_MS = 600L
@@ -373,7 +373,16 @@ class AgentEngine(
                 pendingActionFeedback = null
                 messages.add(userMsg)
 
-                // Strip images from older messages
+                // Trim conversation history to maintain statelessness and reduce prefill latency
+                if (messages.size > MAX_HISTORY_MESSAGES) {
+                    val systemMsg = messages[0]
+                    val recent = messages.takeLast(MAX_HISTORY_MESSAGES - 1)
+                    messages.clear()
+                    messages.add(systemMsg)
+                    messages.addAll(recent)
+                }
+
+                // Strip images from older messages (only keep the current screenshot)
                 stripImagesFromHistory(messages)
                 val encodeMs = System.currentTimeMillis() - t1
 
@@ -677,15 +686,6 @@ class AgentEngine(
                 // Wait for screen update before next step
                 prevActionType = actionType
                 delay(if (actionType == "open_app") 2000 else 1000)
-
-                // Trim conversation history
-                if (messages.size > MAX_HISTORY_MESSAGES) {
-                    val systemMsg = messages[0]
-                    val recent = messages.takeLast(MAX_HISTORY_MESSAGES - 1)
-                    messages.clear()
-                    messages.add(systemMsg)
-                    messages.addAll(recent)
-                }
             }
 
             // Max steps reached

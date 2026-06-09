@@ -10,8 +10,8 @@ import java.io.ByteArrayOutputStream
  */
 object ImageUtil {
 
-    private const val MAX_WIDTH = 768
-    private const val JPEG_QUALITY = 85
+    private const val MAX_WIDTH = 512
+    private const val JPEG_QUALITY = 60
 
     /**
      * Resize bitmap so its width does not exceed [maxWidth], preserving aspect ratio.
