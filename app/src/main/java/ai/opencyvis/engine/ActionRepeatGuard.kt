@@ -36,6 +36,9 @@ class ActionRepeatGuard(
             isRepeatedTapLike(previous, candidate) && screenLooksUnchanged(currentScreen) -> {
                 LlmPrompts.guardFeedback("repeated_tap")
             }
+            isTapAfterTypeTextUnchanged(previous, candidate, currentScreen) -> {
+                LlmPrompts.guardFeedback("tap_after_type_text_unchanged")
+            }
             else -> null
         }
 
@@ -45,6 +48,14 @@ class ActionRepeatGuard(
             consecutiveBlocks += 1
             Decision.Block(buildFeedback(blockReason))
         }
+    }
+
+    private fun isTapAfterTypeTextUnchanged(previous: Action, candidate: Action, currentScreen: ScreenFingerprint?): Boolean {
+        // If we just typed text and the screen didn't change, and now we are tapping again (likely near the same spot),
+        // we should suggest using Enter instead.
+        return previous is Action.TypeText && 
+               candidate is Action.Tap && 
+               screenLooksUnchanged(currentScreen)
     }
 
     fun recordExecuted(action: Action, screenBeforeAction: ScreenFingerprint?) {

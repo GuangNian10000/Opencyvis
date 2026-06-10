@@ -392,8 +392,22 @@ class AgentEngine(
 
                 val resultData: Map<String, Any?>
                 try {
-                    resultData = llmClient.chatWithTools(messages)
-                } catch (e: LLMException) {
+                    // Retry once on network-related errors to handle transient connection issues
+                    resultData = try {
+                        llmClient.chatWithTools(messages)
+                    } catch (e: Exception) {
+                        val message = e.message ?: ""
+                        if (message.contains("abort", ignoreCase = true) || 
+                            message.contains("timeout", ignoreCase = true) ||
+                            message.contains("reset", ignoreCase = true)) {
+                            Log.w(TAG, "Step $step: LLM request failed ($message), retrying once...")
+                            delay(1000)
+                            llmClient.chatWithTools(messages)
+                        } else {
+                            throw e
+                        }
+                    }
+                } catch (e: Exception) {
                     val llmMs = System.currentTimeMillis() - t2
                     Log.w(TAG, "Step $step TIMING: capture=${captureMs}ms encode=${encodeMs}ms llm=${llmMs}ms (ERROR)")
                     _state.value = AgentState.Error("LLM error: ${e.message}")

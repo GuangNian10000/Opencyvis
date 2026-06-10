@@ -78,8 +78,9 @@ class ActionExecutor(
                     
                     // Extra compensation for bottom area (e.g. WeChat/Meituan bottom buttons)
                     // If AI clicks near bottom (y > 900), ensure it doesn't undershoot
-                    if (displayId != 0 && action.y > 900) {
-                        realY = Math.min(1000, realY + 10)
+                    if (displayId != 0 && action.y > 850) {
+                        val boost = if (action.y > 950) 15 else 8
+                        realY = Math.min(1000, realY + boost)
                     }
 
                     val ok = inputInjector.tap(action.x, realY)
@@ -94,8 +95,9 @@ class ActionExecutor(
                         } else 0
                     } else action.y
                     
-                    if (displayId != 0 && action.y > 900) {
-                        realY = Math.min(1000, realY + 10)
+                    if (displayId != 0 && action.y > 850) {
+                        val boost = if (action.y > 950) 15 else 8
+                        realY = Math.min(1000, realY + boost)
                     }
 
                     val ok = inputInjector.longPress(action.x, realY)

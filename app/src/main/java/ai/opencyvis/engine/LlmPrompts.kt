@@ -58,7 +58,7 @@ Example: {"action_type":"tap","x":500,"y":500}"""
 
 【高效原则】
 1. 坐标系：0-1000 归一化。状态栏区域 (y < 60) 禁止点击。
-2. 输入文字：必须先 tap 点击输入框，点击后即使屏幕无变化（如未见键盘）也应立即执行 type_text。
+2. 输入与搜索：输入文字必须先 tap 点击输入框，点击后即使屏幕无变化（如未见键盘）也应立即执行 type_text。在美团/微信等搜索场景，若 type_text 后未自动跳转且未见明显的界面搜索按钮，优先尝试执行 key_event("enter") 触发搜索，而非重复点击输入框。
 3. 微信专项：找不到联系人点右上角搜索图标，输入全名并点击结果。发消息必须严格执行“点击输入框 -> type_text -> 点击发送按钮”。即便看到历史记录有相同内容，也必须重新发送，严禁提前终止。如果没看到发送按钮，尝试 key_event("enter")。
 4. 容错：连续两步屏幕无变化须更换策略。不要点击主屏幕图标，优先用 open_app。
 
@@ -138,7 +138,8 @@ Example: {"action_type":"tap","x":500,"y":500}"""
     private val GUARD_EN = mapOf(
         "repeated_type_text" to "The same text was already typed in the previous step. Do not repeat the same input.",
         "repeated_submit" to "The same submit key was already pressed in the previous step, and the screen has not changed significantly.",
-        "repeated_tap" to "Nearly the same position was already tapped in the previous step, and the screen has not changed significantly.",
+        "repeated_tap" to "Nearly the same position was already tapped in the previous step, and the screen has not changed significantly. If you are trying to search or submit, try key_event(\"enter\") or look for a different button.",
+        "tap_after_type_text_unchanged" to "You typed text in the previous step but the screen didn't change. Tapping the input field again is likely useless. Please try key_event(\"enter\") to trigger search/send, or look for a visible 'Search'/'Send' button on the screen.",
         "escalation_high" to " If there might be a system confirmation, permission, installation, or external dialog not visible in the virtual display, please use ask_user to ask the user for help.",
         "escalation_low" to " Please try a different strategy; if you need user confirmation, use ask_user."
     )
@@ -146,7 +147,8 @@ Example: {"action_type":"tap","x":500,"y":500}"""
     private val GUARD_ZH = mapOf(
         "repeated_type_text" to "上一步已经输入过相同文本，不要重复执行同一输入。",
         "repeated_submit" to "上一步已经执行过相同的提交按键，当前屏幕没有明显变化。",
-        "repeated_tap" to "上一步已经点击过几乎相同的位置，当前屏幕没有明显变化。",
+        "repeated_tap" to "上一步已经点击过几乎相同的位置，当前屏幕没有明显变化。如果你正在尝试搜索或提交，请尝试 key_event(\"enter\") 或寻找其他按钮。",
+        "tap_after_type_text_unchanged" to "上一步输入文字后屏幕没有变化，再次点击输入框通常无效。请尝试执行 key_event(\"enter\") 触发搜索/发送，或寻找屏幕上可见的“搜索”/“发送”按钮。",
         "escalation_high" to " 如果可能存在虚拟显示器看不到的系统确认、权限、安装或外部弹窗，请使用 ask_user 向用户求助。",
         "escalation_low" to " 请换一种策略；如果需要用户确认，请使用 ask_user。"
     )
@@ -175,8 +177,8 @@ Example: {"action_type":"tap","x":500,"y":500}"""
         "handoff_completed" to "用户已完成敏感输入接管并交还控制（%s）。请重新观察当前屏幕继续任务；如果仍然需要敏感输入，继续使用 handoff_user，不要询问密码。",
         "action_failed" to "上一步操作失败：%s",
         "action_success" to "上一步操作成功：%s",
-        "screen_unchanged" to "执行 %s 操作后屏幕内容没有变化。上一步操作可能未生效，请换一种方式操作，不要重复相同的动作。",
-        "screen_stuck" to "屏幕已连续多步没有变化，你重复的操作没有产生任何可见效果。立即停止重复相同的方式。如果你一直在尝试点击输入框，请直接使用 type_text —— 输入框可能已经获得焦点，只是键盘没有显示在截图中。如果点击完全无效，请尝试完全不同的策略。",
+        "screen_unchanged" to "执行 %s 操作后屏幕内容没有变化。上一步操作可能未生效，请换一种方式操作（如尝试回车键或微调点击位置），不要重复相同的动作。",
+        "screen_stuck" to "屏幕已连续多步没有变化，你重复的操作没有产生任何可见效果。立即停止重复相同的方式。如果你一直在尝试点击输入框，请直接使用 type_text —— 输入框可能已经获得焦点，只是键盘没有显示在截图中。如果尝试触发搜索，请尝试 key_event(\"enter\")。如果点击完全无效，请尝试完全不同的策略。",
         "max_steps_reached" to "已达到最大步数限制 (%d)",
         "user_answer_prefix" to "用户回答：%s\n请根据用户回答继续完成任务：",
         "system_feedback_prefix" to "【系统反馈】%s\n请根据反馈调整策略，必要时用 ask_user 向用户求助。\n\n",
